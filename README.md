@@ -72,4 +72,4 @@ Libro, Usuario: Modelos para representar los objetos del sistema.
 Biblioteca: Clase principal que contiene los menús y la lógica del programa.
 
 menu_principal(): Punto de entrada para interactuar con el sistema desde consola.
-[basededatosuwuti3 - copia.sql](https://github.com/user-attachments/files/22935686/basededatosuwuti3.-.copia.sql)
+
