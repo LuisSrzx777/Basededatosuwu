@@ -23,8 +23,6 @@ pip install mysql-connector-python
 🗃️ Estructura de la Base de Datos
 Asegúrate de crear una base de datos llamada biblioteca con las siguientes tablas:
 
-sql
-Copiar código
 CREATE DATABASE biblioteca;
 
 USE biblioteca;
