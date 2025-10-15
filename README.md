@@ -1,44 +1,60 @@
 <img width="1600" height="900" alt="Captura de pantalla (29)" src="https://github.com/user-attachments/assets/52975033-30d2-42ab-9b60-2f75d108fa4e" />
-# 📚 Sistema de Gestión de Biblioteca en Python
+Sistema de Gestión de Biblioteca
+Un sistema de gestión de biblioteca desarrollado en Python que permite administrar libros, usuarios y préstamos de manera eficiente.
 
-Este es un sistema de gestión de biblioteca desarrollado en Python que permite registrar libros y usuarios, gestionar préstamos y devoluciones, y consultar información almacenada en una base de datos MySQL.
+Características
+📚 Gestión de Libros
+Registrar nuevos libros
 
-## 🚀 Características
+Listar todos los libros disponibles
 
-- Registro de libros y usuarios.
-- Búsqueda de libros por título o autor.
-- Registro y devolución de préstamos.
-- Consulta de préstamos activos o históricos.
-- Menús interactivos por consola.
+Buscar libros por título o autor
 
-## 🛠️ Requisitos
+Control de disponibilidad
 
-- Python 3.6 o superior
-- MySQL Server
-- Biblioteca `mysql-connector-python`
+👥 Gestión de Usuarios
+Registrar nuevos usuarios
 
-Instalación del conector MySQL para Python:
+Listar usuarios existentes
 
-```bash
-pip install mysql-connector-python
-🗃️ Estructura de la Base de Datos
-Asegúrate de crear una base de datos llamada biblioteca con las siguientes tablas:
+Clasificación por tipo de usuario
 
+🔄 Gestión de Préstamos
+Registrar préstamos de libros
+
+Devolución de libros
+
+Listar préstamos (activos y completos)
+
+Control de fechas de préstamo y devolución
+
+Requisitos del Sistema
+Software Requerido
+Python 3.6 o superior
+
+MySQL Server
+
+MySQL Connector/Python
+
+Base de Datos
+El sistema utiliza MySQL y requiere las siguientes tablas:
+
+sql
 CREATE DATABASE biblioteca;
 
 USE biblioteca;
 
 CREATE TABLE libros (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(255),
-    autor VARCHAR(255),
+    titulo VARCHAR(255) NOT NULL,
+    autor VARCHAR(255) NOT NULL,
     anio INT,
-    disponible BOOLEAN
+    disponible BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255),
+    nombre VARCHAR(255) NOT NULL,
     tipo VARCHAR(100)
 );
 
@@ -47,29 +63,37 @@ CREATE TABLE prestamos (
     id_usuario INT,
     id_libro INT,
     fecha_prestamo DATE,
-    fecha_devolucion DATE,
+    fecha_devolucion DATE NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
     FOREIGN KEY (id_libro) REFERENCES libros(id)
 );
+Instalación
+Clonar o descargar el proyecto
 
-⚙️ Configuración
-Modifica la clase ConexionBD si tus credenciales de base de datos son diferentes:
+bash
+git clone <url-del-repositorio>
+cd biblioteca
+Instalar dependencias
+
+bash
+pip install mysql-connector-python
+Configurar la base de datos
+
+Asegúrate de que MySQL esté ejecutándose
+
+Crea la base de datos y las tablas usando los scripts SQL proporcionados
+
+Configura las credenciales de conexión en la clase ConexionBD:
 
 python
-Copiar código
 self._conexion = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="toor",
+    user="tu_usuario",
+    password="tu_contraseña",
     database="biblioteca"
 )
-
-📂 Estructura del Código
-ConexionBD: Maneja la conexión con MySQL.
-
-Libro, Usuario: Modelos para representar los objetos del sistema.
-
-Biblioteca: Clase principal que contiene los menús y la lógica del programa.
-
-menu_principal(): Punto de entrada para interactuar con el sistema desde consola.
+Uso
+Ejecutar la aplicación
+bash
+python biblioteca.py
 
