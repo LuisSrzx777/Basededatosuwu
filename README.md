@@ -52,6 +52,7 @@ CREATE TABLE prestamos (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
     FOREIGN KEY (id_libro) REFERENCES libros(id)
 );
+
 ⚙️ Configuración
 Modifica la clase ConexionBD si tus credenciales de base de datos son diferentes:
 
@@ -63,6 +64,7 @@ self._conexion = mysql.connector.connect(
     password="toor",
     database="biblioteca"
 )
+
 📂 Estructura del Código
 ConexionBD: Maneja la conexión con MySQL.
 
