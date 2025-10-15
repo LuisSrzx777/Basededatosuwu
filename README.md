@@ -1,6 +1,6 @@
 <img width="1600" height="900" alt="Captura de pantalla (29)" src="https://github.com/user-attachments/assets/52975033-30d2-42ab-9b60-2f75d108fa4e" />
 
-
+ 
 Sistema de Gestión de Biblioteca
 Un sistema de gestión de biblioteca desarrollado en Python que permite administrar libros, usuarios y préstamos de manera eficiente.
 
