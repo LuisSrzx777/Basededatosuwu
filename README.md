@@ -101,3 +101,7 @@ Ejecutar la aplicación
 bash
 python biblioteca.py
 
+
+Instala las dependencias:
+
+pip install mysql-connector-python
